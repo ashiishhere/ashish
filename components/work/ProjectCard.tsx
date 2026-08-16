@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Badge } from '@/components/ui/Badge';
 import { VideoThumbnail } from '@/components/video/VideoThumbnail';
 import { ROLE_LABELS, cn } from '@/lib/utils';
 import type { ProjectWithRelations } from '@/types/project';
@@ -40,16 +39,13 @@ export function ProjectCard({ project }: { project: ProjectWithRelations }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>
 
-        <div className="mt-4 flex items-start justify-between gap-3">
-          <div>
-            <h3 className="font-display text-lg uppercase leading-snug transition-colors group-hover:text-accent">
-              {project.title}
-            </h3>
-            <p className="mt-1 text-xs uppercase tracking-widest2 text-muted">
-              {project.category?.name ?? 'Uncategorized'} {project.year ? `· ${project.year}` : ''}
-            </p>
-          </div>
-          <Badge variant="outline">{project.videoType}</Badge>
+        <div className="mt-4">
+          <h3 className="font-display text-lg uppercase leading-snug transition-colors group-hover:text-accent">
+            {project.title}
+          </h3>
+          <p className="mt-1 text-xs uppercase tracking-widest2 text-muted">
+            {project.category?.name ?? 'Uncategorized'} {project.year ? `· ${project.year}` : ''}
+          </p>
         </div>
         <p className="mt-1 text-xs text-muted">{ROLE_LABELS[project.role]}</p>
       </Link>

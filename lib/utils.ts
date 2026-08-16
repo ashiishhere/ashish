@@ -19,7 +19,15 @@ export function formatDateRange(start: Date, end: Date | null, current: boolean)
   return startYear === endYear ? `${startYear}` : `${startYear} — ${endYear}`;
 }
 
-export const CATEGORY_FILTERS = [ 'ALL', 'FILMS', 'DOCUMENTARIES', 'BRAND', 'DIGITAL', 'NEWS', 'OTHER', ] as const;
+export const CATEGORY_FILTERS = [
+  'ALL',
+  'FILMS',
+  'SHORT FILM',
+  'DOCUMENTARY',
+  'DIGITAL',
+  'MUSIC VIDEO',
+  'BRAND PROMO',
+] as const;
 
 export const ROLE_LABELS: Record<string, string> = {
   DIRECTOR: 'Director',

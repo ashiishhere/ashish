@@ -147,11 +147,6 @@ export function ProjectForm({ categories, initialProject }: ProjectFormProps) {
           {categories.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
         </Select>
 
-        <Select label="Video Type" value={videoType} onChange={(e) => setVideoType(e.target.value as 'LONG' | 'SHORT')}>
-          <option value="LONG">Long</option>
-          <option value="SHORT">Short</option>
-        </Select>
-
         <Select label="Primary Role" value={role} onChange={(e) => setRole(e.target.value as typeof role)}>
           {ROLES.map((r) => <option key={r} value={r}>{r.replace('_', ' ')}</option>)}
         </Select>

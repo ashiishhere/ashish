@@ -1,11 +1,13 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { db } from '@/lib/db';
 
 async function getGalleryImages() {
   try {
     return await db.galleryImage.findMany({
       where: { published: true },
-      orderBy: { sortOrder: 'asc' },
+      orderBy: { createdAt: 'desc' },
+      take: 4,
     });
   } catch {
     return [];
@@ -40,6 +42,15 @@ export async function GallerySection() {
               )}
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/gallery"
+            className="inline-block border border-foreground/30 px-8 py-3 text-xs uppercase tracking-widest2 transition-colors hover:border-accent hover:text-accent"
+          >
+            See All
+          </Link>
         </div>
       </div>
     </section>

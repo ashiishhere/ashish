@@ -54,18 +54,18 @@ export default async function AboutPage() {
             <h1 className="font-display text-4xl uppercase leading-none sm:text-5xl lg:text-6xl">
               About Ashish
             </h1>
-            <p className="mt-4 text-lg text-muted">Filmmaker. Producer. Editor. Storyteller.</p>
+            <p className="mt-4 text-lg text-muted">
+              {settings?.headline || 'Filmmaker. Producer. Editor. Storyteller.'}
+            </p>
 
             <div className="mt-8 space-y-4 text-muted">
               <p>
-                I am an award-winning filmmaker, creative producer and senior video editor with 5+
-                years of experience working across digital content, documentaries, branded films and
-                independent cinema.
+                {settings?.shortBio ||
+                  'I am an award-winning filmmaker, creative producer and senior video editor with 5+ years of experience working across digital content, documentaries, branded films and independent cinema.'}
               </p>
               <p>
-                My approach brings together storytelling, production and post-production — allowing me
-                to take an idea from its initial concept through scripting, direction, filming,
-                editing, sound and final delivery.
+                {settings?.professionalSummary ||
+                  'My approach brings together storytelling, production and post-production — allowing me to take an idea from its initial concept through scripting, direction, filming, editing, sound and final delivery.'}
               </p>
             </div>
           </div>
