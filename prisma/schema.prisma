@@ -1,0 +1,219 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum VideoType {
+  LONG
+  SHORT
+}
+
+enum MessageStatus {
+  NEW
+  READ
+  REPLIED
+  ARCHIVED
+}
+
+enum ProjectRole {
+  DIRECTOR
+  PRODUCER
+  EDITOR
+  VIDEOGRAPHER
+  ASSISTANT_DIRECTOR
+  OTHER
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  name      String    @unique
+  slug      String    @unique
+  sortOrder Int       @default(0)
+  projects  Project[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Project {
+  id                String         @id @default(cuid())
+  title             String
+  slug              String         @unique
+  client            String?
+  year              Int?
+  categoryId        String?
+  category          Category?      @relation(fields: [categoryId], references: [id])
+  videoType         VideoType      @default(LONG)
+  role              ProjectRole    @default(EDITOR)
+  shortDescription  String?
+  fullDescription   String?
+  thumbnailUrl      String?
+  thumbnailPublicId String?
+  featured          Boolean        @default(false)
+  published         Boolean        @default(false)
+  sortOrder         Int            @default(0)
+  videos            ProjectVideo[]
+  seoTitle          String?
+  seoDescription    String?
+  ogImageUrl        String?
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+
+  @@index([published, featured])
+  @@index([categoryId])
+}
+
+model ProjectVideo {
+  id             String      @id @default(cuid())
+  projectId      String
+  project        Project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  title          String
+  youtubeVideoId String
+  videoType      VideoType   @default(LONG)
+  description    String?
+  role           ProjectRole @default(EDITOR)
+  sortOrder      Int         @default(0)
+  createdAt      DateTime    @default(now())
+
+  @@index([projectId])
+}
+
+model Experience {
+  id               String    @id @default(cuid())
+  jobTitle         String
+  company          String
+  location         String?
+  startDate        DateTime
+  endDate          DateTime?
+  currentPosition  Boolean   @default(false)
+  description      String?
+  responsibilities String[]  @default([])
+  sortOrder        Int       @default(0)
+  published        Boolean   @default(true)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  icon        String?
+  sortOrder   Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Award {
+  id                 String       @id @default(cuid())
+  projectName        String
+  awardTitle         String
+  festivalName       String
+  location           String?
+  year               Int?
+  description        String?
+  mainImageUrl       String?
+  mainImagePublicId  String?
+  mainImageAlt       String?
+  galleryImages      AwardImage[]
+  featured           Boolean      @default(false)
+  published          Boolean      @default(true)
+  sortOrder          Int          @default(0)
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+}
+
+model AwardImage {
+  id        String   @id @default(cuid())
+  awardId   String
+  award     Award    @relation(fields: [awardId], references: [id], onDelete: Cascade)
+  url       String
+  publicId  String?
+  altText   String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([awardId])
+}
+
+model ContactMessage {
+  id          String        @id @default(cuid())
+  name        String
+  email       String
+  company     String?
+  projectType String?
+  message     String
+  status      MessageStatus @default(NEW)
+  createdAt   DateTime      @default(now())
+}
+
+model SiteSetting {
+  id                      String   @id @default(cuid())
+  siteName                String   @default("Ashish Dabhade")
+  headline                String?
+  bio                     String?
+  shortBio                String?
+  professionalSummary     String?
+  profileImageUrl         String?
+  aboutImageUrl           String?
+  phone                   String?
+  email                   String?
+  languages               String[] @default([])
+  education               Json?
+  professionalAffiliation String?
+  softwareTools           String[] @default([])
+  aiTools                 String[] @default([])
+  skillsEditing           String[] @default([])
+  skillsProduction        String[] @default([])
+  heroSupportingText      String?
+  introHeading            String?
+  introText1              String?
+  introText2              String?
+  contactHeading          String?
+  contactText             String?
+  updatedAt               DateTime @updatedAt
+}
+
+model GalleryImage {
+  id        String   @id @default(cuid())
+  url       String
+  publicId  String?
+  altText   String?
+  caption   String?
+  sortOrder Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+model SocialLink {
+  id        String   @id @default(cuid())
+  platform  String
+  url       String
+  sortOrder Int      @default(0)
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+model SEOSetting {
+  id          String   @id @default(cuid())
+  page        String   @unique
+  title       String?
+  description String?
+  keywords    String?
+  ogImageUrl  String?
+  faviconUrl  String?
+  updatedAt   DateTime @updatedAt
+}

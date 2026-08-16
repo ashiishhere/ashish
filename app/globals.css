@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+::selection {
+  background-color: #c8102e;
+  color: #ffffff;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Focus states — visible everywhere for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #c8102e;
+  outline-offset: 3px;
+}
+
+.container-cinema {
+  @apply mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-16;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px #f5f5f5;
+  color: transparent;
+}
+
+.eyebrow {
+  @apply text-xs sm:text-sm tracking-widest2 uppercase text-accent font-medium;
+}
