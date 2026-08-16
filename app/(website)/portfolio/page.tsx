@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import type { Metadata } from 'next';
 import { WorkHero } from '@/components/work/WorkHero';
 import { ProjectGrid } from '@/components/work/ProjectGrid';
