@@ -1,3 +1,4 @@
+export const revalidate = 0;
 import type { Metadata } from 'next';
 import { db } from '@/lib/db';
 import { Hero } from '@/components/home/Hero';
