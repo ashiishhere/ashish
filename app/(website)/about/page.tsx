@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { db } from '@/lib/db';
