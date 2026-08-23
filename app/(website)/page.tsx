@@ -13,9 +13,9 @@ import { AboutPreview } from '@/components/home/AboutPreview';
 import { ContactCTA } from '@/components/home/ContactCTA';
 
 export const metadata: Metadata = {
-  title: 'Ashish Dabhade — Award-Winning Filmmaker | Creative Producer | Senior Video Editor',
+  title: 'Ashiish Dabhade — Award-Winning Filmmaker | Creative Producer | Senior Video Editor',
   description:
-    'From concept to final cut, Ashish Dabhade creates visual stories that connect, communicate and leave an impact.',
+    'From concept to final cut, Ashiish Dabhade creates visual stories that connect, communicate and leave an impact.',
 };
 
 async function getSettings() {
@@ -34,9 +34,9 @@ export default async function HomePage() {
       <Hero supportingText={settings?.heroSupportingText} />
       <Intro heading={settings?.introHeading} text1={settings?.introText1} text2={settings?.introText2} />
       <SelectedWork />
+      <GallerySection />
       <ServicesPreview />
       <AwardHighlight />
-      <GallerySection />
       <ExperiencePreview />
       <AboutPreview />
       <ContactCTA heading={settings?.contactHeading} text={settings?.contactText} />

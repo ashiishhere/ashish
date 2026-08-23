@@ -8,7 +8,7 @@ async function getFeaturedProjects() {
       where: { published: true, featured: true },
       include: { category: true, videos: { take: 1, orderBy: { sortOrder: 'asc' } } },
       orderBy: { sortOrder: 'asc' },
-      take: 8,
+      take: 6,
     });
   } catch {
     return [];
@@ -30,7 +30,7 @@ export async function SelectedWork() {
               and edited.
             </p>
           </div>
-          <Button href="/portfolio" variant="outline">View All Work</Button>
+          <Button href="/portfolio" variant="outline">Watch More</Button>
         </div>
 
         {projects.length > 0 ? (

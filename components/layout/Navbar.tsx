@@ -41,7 +41,7 @@ export function Navbar() {
       >
         <nav className="container-cinema flex h-20 items-center justify-between" aria-label="Main navigation">
           <Link href="/" className="font-display text-lg font-semibold tracking-widest2 uppercase">
-            Ashish Dabhade
+            Ashiish
           </Link>
 
           <ul className="hidden items-center gap-10 lg:flex">

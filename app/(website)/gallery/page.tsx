@@ -6,7 +6,7 @@ import { db } from '@/lib/db';
 
 export const metadata: Metadata = {
   title: 'Gallery',
-  description: 'Behind the frame — a gallery of moments from Ashish Dabhade\'s work.',
+  description: 'Behind the frame — a gallery of moments from Ashiish Dabhade\'s work.',
 };
 
 async function getGalleryImages() {

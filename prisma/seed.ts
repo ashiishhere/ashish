@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 const db = new PrismaClient();
 
 /**
- * Seeds only information explicitly supplied by Ashish Dabhade's resume and
+ * Seeds only information explicitly supplied by Ashiish Dabhade's resume and
  * project brief. No clients, projects, testimonials, or statistics are
  * invented. Portfolio projects are intentionally left empty — the admin
  * adds them through the CMS as real work becomes available.
@@ -22,7 +22,7 @@ async function main() {
   await db.user.upsert({
     where: { email: adminEmail.toLowerCase().trim() },
     update: { passwordHash },
-    create: { email: adminEmail.toLowerCase().trim(), passwordHash, name: 'Ashish Dabhade' },
+    create: { email: adminEmail.toLowerCase().trim(), passwordHash, name: 'Ashiish Dabhade' },
   });
   console.log('✓ Admin account seeded');
 
@@ -157,7 +157,7 @@ async function main() {
   // --- Site settings (from resume) ---------------------------------------
   const existingSettings = await db.siteSetting.findFirst();
   const settingsData = {
-    siteName: 'Ashish Dabhade',
+    siteName: 'Ashiish Dabhade',
     headline: 'Award-Winning Filmmaker | Creative Producer | Senior Video Editor',
     professionalSummary:
       "Award-winning filmmaker, creative producer, and senior video editor with 5+ years managing the complete production lifecycle — from concept development and scripting to direction, videography, editing, sound design, and final delivery — across digital content, documentaries, branded films, and independent cinema.",
@@ -205,9 +205,9 @@ async function main() {
     update: {},
     create: {
       page: 'global',
-      title: 'Ashish Dabhade — Award-Winning Filmmaker | Creative Producer | Senior Video Editor',
+      title: 'Ashiish Dabhade — Award-Winning Filmmaker | Creative Producer | Senior Video Editor',
       description:
-        'Ashish Dabhade is an award-winning filmmaker, creative producer and senior video editor crafting visual stories across digital content, documentaries, branded films and independent cinema.',
+        'Ashiish Dabhade is an award-winning filmmaker, creative producer and senior video editor crafting visual stories across digital content, documentaries, branded films and independent cinema.',
     },
   });
   console.log('✓ SEO defaults seeded');

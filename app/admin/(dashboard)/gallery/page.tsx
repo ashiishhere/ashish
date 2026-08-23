@@ -62,6 +62,24 @@ export default function AdminGalleryPage() {
     }
   }
 
+  async function handleOrderChange(id: string, sortOrder: number) {
+    setImages((prev) => prev.map((img) => (img.id === id ? { ...img, sortOrder } : img)));
+  }
+
+  async function handleOrderSave(id: string, sortOrder: number) {
+    const res = await fetch(`/api/admin/gallery/${id}/order`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sortOrder }),
+    });
+    if (res.ok) {
+      toast.success('Order updated.');
+      load();
+    } else {
+      toast.error('Failed to update order.');
+    }
+  }
+
   return (
     <>
       <AdminHeader title="Gallery" />
@@ -73,6 +91,10 @@ export default function AdminGalleryPage() {
           <Input label="Caption (optional)" value={caption} onChange={(e) => setCaption(e.target.value)} />
           <Button onClick={handleAdd} disabled={saving}>{saving ? 'Adding…' : 'Add to Gallery'}</Button>
         </div>
+
+        <p className="mb-4 text-sm text-muted">
+          Lower number shows first. Home page shows the first 6 images in this order.
+        </p>
 
         {loading ? (
           <p className="text-muted">Loading…</p>
@@ -88,6 +110,20 @@ export default function AdminGalleryPage() {
                 >
                   ×
                 </button>
+                <div className="absolute inset-x-0 bottom-0 flex items-center gap-1 bg-black/70 p-1.5">
+                  <input
+                    type="number"
+                    value={img.sortOrder}
+                    onChange={(e) => handleOrderChange(img.id, Number(e.target.value))}
+                    className="w-12 border border-white/30 bg-transparent px-1 py-0.5 text-xs text-white"
+                  />
+                  <button
+                    onClick={() => handleOrderSave(img.id, img.sortOrder)}
+                    className="text-xs text-white hover:text-accent"
+                  >
+                    Save
+                  </button>
+                </div>
               </div>
             ))}
           </div>

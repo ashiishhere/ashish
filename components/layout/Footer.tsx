@@ -17,7 +17,7 @@ export async function Footer() {
     <footer className="border-t border-border bg-background">
       <div className="container-cinema grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="font-display text-xl uppercase tracking-widest2">Ashish Dabhade</p>
+          <p className="font-display text-xl uppercase tracking-widest2">Ashiish Dabhade</p>
           <p className="mt-3 text-sm text-muted">
             Award-Winning Filmmaker, Creative Producer &amp; Senior Video Editor.
           </p>
@@ -64,7 +64,7 @@ export async function Footer() {
 
       <div className="border-t border-border py-6">
         <p className="container-cinema text-center text-xs text-muted">
-          © {year} Ashish Dabhade. All rights reserved.
+          © {year} Ashiish Dabhade. All rights reserved.
         </p>
       </div>
     </footer>

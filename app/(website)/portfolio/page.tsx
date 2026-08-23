@@ -6,7 +6,7 @@ import { ProjectGrid } from '@/components/work/ProjectGrid';
 
 export const metadata: Metadata = {
   title: 'Portfolio',
-  description: 'Films, documentaries, branded content and digital stories by Ashish Dabhade.',
+  description: 'Films, documentaries, branded content and digital stories by Ashiish Dabhade.',
 };
 
 export default function WorkPage() {

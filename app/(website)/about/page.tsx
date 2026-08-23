@@ -7,7 +7,7 @@ import { db } from '@/lib/db';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Ashish Dabhade is an award-winning filmmaker, creative producer and senior video editor with 5+ years of experience.',
+    'Ashiish Dabhade is an award-winning filmmaker, creative producer and senior video editor with 5+ years of experience.',
 };
 
 async function getSettings() {
@@ -52,7 +52,7 @@ export default async function AboutPage() {
           <div>
             <p className="eyebrow mb-4">About</p>
             <h1 className="font-display text-4xl uppercase leading-none sm:text-5xl lg:text-6xl">
-              About Ashish
+              About Ashiish
             </h1>
             <p className="mt-4 text-lg text-muted">
               {settings?.headline || 'Filmmaker. Producer. Editor. Storyteller.'}
@@ -72,8 +72,8 @@ export default async function AboutPage() {
 
           <div className="relative aspect-[4/5] overflow-hidden">
             <Image
-              src="/images/About_Page.png"
-              alt="Ashish Dabhade"
+              src="/images/Home_Page.jpeg"
+              alt="Ashiish Dabhade"
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 50vw"

@@ -6,8 +6,8 @@ async function getGalleryImages() {
   try {
     return await db.galleryImage.findMany({
       where: { published: true },
-      orderBy: { createdAt: 'desc' },
-      take: 4,
+      orderBy: { sortOrder: 'asc' },
+      take: 6,
     });
   } catch {
     return [];
@@ -25,23 +25,28 @@ export async function GallerySection() {
         <p className="eyebrow mb-3">Gallery</p>
         <h2 className="mb-14 font-display text-3xl uppercase sm:text-4xl lg:text-5xl">Behind the Frame</h2>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-          {images.map((img) => (
-            <div key={img.id} className="group relative aspect-square overflow-hidden bg-surface2">
-              <Image
-                src={img.url}
-                alt={img.altText || 'Gallery image'}
-                fill
-                sizes="(max-width: 768px) 50vw, 25vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              {img.caption && (
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3 opacity-0 transition-opacity group-hover:opacity-100">
-                  <p className="text-xs text-white">{img.caption}</p>
-                </div>
-              )}
-            </div>
-          ))}
+        <div className="overflow-hidden">
+          <div className="flex w-max animate-marquee gap-3 hover:[animation-play-state:paused]">
+            {[...images, ...images].map((img, idx) => (
+              <div
+                key={`${img.id}-${idx}`}
+                className="group relative h-56 w-56 shrink-0 overflow-hidden bg-surface2 sm:h-72 sm:w-72"
+              >
+                <Image
+                  src={img.url}
+                  alt={img.altText || 'Gallery image'}
+                  fill
+                  sizes="300px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {img.caption && (
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3 opacity-0 transition-opacity group-hover:opacity-100">
+                    <p className="text-xs text-white">{img.caption}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-12 text-center">
@@ -49,7 +54,7 @@ export async function GallerySection() {
             href="/gallery"
             className="inline-block border border-foreground/30 px-8 py-3 text-xs uppercase tracking-widest2 transition-colors hover:border-accent hover:text-accent"
           >
-            See All
+            See More
           </Link>
         </div>
       </div>

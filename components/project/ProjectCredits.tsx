@@ -10,7 +10,7 @@ export function ProjectCredits({ project }: { project: ProjectWithRelations }) {
       <ul className="space-y-2 text-sm text-muted">
         {roles.map((role) => (
           <li key={role}>
-            <span className="text-foreground">Ashish Dabhade</span> — {ROLE_LABELS[role]}
+            <span className="text-foreground">Ashiish Dabhade</span> — {ROLE_LABELS[role]}
           </li>
         ))}
       </ul>

@@ -25,7 +25,7 @@ export function AdminSidebar({ className }: { className?: string }) {
   return (
     <aside className={cn('flex h-full flex-col border-r border-border bg-surface', className)}>
       <div className="border-b border-border p-6">
-        <p className="font-display text-sm uppercase tracking-widest2">Ashish Dabhade</p>
+        <p className="font-display text-sm uppercase tracking-widest2">Ashiish Dabhade</p>
         <p className="mt-1 text-xs text-muted">Admin Panel</p>
       </div>
 

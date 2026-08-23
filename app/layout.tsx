@@ -17,11 +17,11 @@ const sans = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: {
-    default: 'Ashish Dabhade — Award-Winning Filmmaker | Creative Producer | Senior Video Editor',
-    template: '%s | Ashish Dabhade',
+    default: 'Ashiish Dabhade — Award-Winning Filmmaker | Creative Producer | Senior Video Editor',
+    template: '%s | Ashiish Dabhade',
   },
   description:
-    'Ashish Dabhade is an award-winning filmmaker, creative producer and senior video editor crafting visual stories across digital content, documentaries, branded films and independent cinema.',
+    'Ashiish Dabhade is an award-winning filmmaker, creative producer and senior video editor crafting visual stories across digital content, documentaries, branded films and independent cinema.',
   icons: { icon: '/favicon.ico' },
 };
 

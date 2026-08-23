@@ -8,7 +8,7 @@ export function AboutPreview() {
         <div className="relative aspect-[4/5] overflow-hidden">
           <Image
             src="/images/About_Page.png"
-            alt="Ashish Dabhade"
+            alt="Ashiish Dabhade"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"

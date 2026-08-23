@@ -16,12 +16,12 @@ export function Hero({ supportingText }: HeroProps) {
     <section className="relative flex min-h-screen items-center overflow-hidden bg-background">
       <div className="absolute inset-0">
         <Image
-          src="/images/Home_Page.jpeg"
-          alt="Ashish Dabhade — Award-Winning Filmmaker, Creative Producer and Senior Video Editor"
+          src="/images/About_Page.png"
+          alt="Ashiish Dabhade — Filmmaker, Director, Writer and Editor"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-top opacity-40"
+          className="object-cover object-center opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/40" />
@@ -34,7 +34,7 @@ export function Hero({ supportingText }: HeroProps) {
           transition={{ duration: 0.6 }}
           className="eyebrow mb-6"
         >
-          Award-Winning Filmmaker · Creative Producer · Senior Video Editor
+          Filmmaker | Director | Writer | Editor
         </motion.p>
 
         <motion.h1
@@ -43,7 +43,7 @@ export function Hero({ supportingText }: HeroProps) {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-display text-[13vw] font-semibold uppercase leading-[0.95] tracking-tight sm:text-[9vw] lg:text-[7vw]"
         >
-          Ashish
+          Ashiish
           <br />
           Dabhade
         </motion.h1>

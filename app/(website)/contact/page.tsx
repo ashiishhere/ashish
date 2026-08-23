@@ -6,7 +6,7 @@ import { ContactInfo } from '@/components/contact/ContactInfo';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch with Ashish Dabhade for your next film, campaign or story.',
+  description: 'Get in touch with Ashiish Dabhade for your next film, campaign or story.',
 };
 
 export default function ContactPage() {

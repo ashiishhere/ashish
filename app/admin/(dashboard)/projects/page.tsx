@@ -4,7 +4,7 @@ import { ProjectsTable } from '@/components/admin/ProjectsTable';
 import { db } from '@/lib/db';
 
 async function getProjects() {
-  return db.project.findMany({ include: { category: true }, orderBy: { createdAt: 'desc' } });
+  return db.project.findMany({ include: { category: true }, orderBy: { sortOrder: 'asc' } });
 }
 
 export default async function AdminProjectsPage() {
