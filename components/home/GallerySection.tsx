@@ -4,10 +4,9 @@ import { db } from '@/lib/db';
 
 async function getGalleryImages() {
   try {
-    return await db.galleryImage.findMany({
+        return await db.galleryImage.findMany({
       where: { published: true },
       orderBy: { sortOrder: 'asc' },
-      take: 6,
     });
   } catch {
     return [];
